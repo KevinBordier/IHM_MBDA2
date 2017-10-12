@@ -77,7 +77,7 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
         );
 
         getContentPane().add(panel1, java.awt.BorderLayout.LINE_END);
@@ -90,7 +90,7 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         );
         map1Layout.setVerticalGroup(
             map1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
@@ -173,12 +173,38 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         jMenuBar1.add(jMenu10);
 
         jMenu11.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELODIECAROY\\Pictures\\menu.png")); // NOI18N
+        jMenu11.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu11MenuSelected(evt);
+            }
+        });
+        jMenu11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu11ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu11);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu11ActionPerformed
+        // TODO add your handling code here:
+        JDialog save = new JDialog(this, "save", true);
+        save.setVisible(true);
+    }//GEN-LAST:event_jMenu11ActionPerformed
+
+    private void jMenu11MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu11MenuSelected
+        // TODO add your handling code here:
+        JDialog save = new saveDialog(this);
+        save.setVisible(true);
+    }//GEN-LAST:event_jMenu11MenuSelected
 
     /**
      * @param args the command line arguments
