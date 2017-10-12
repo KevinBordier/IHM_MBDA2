@@ -44,7 +44,14 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         map1 = new com.esiee.mbdaihm.tps.Map();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu13 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu14 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -101,10 +108,36 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
 
         jMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jMenu1.setText("Education");
+
+        jMenu12.setText("Efficiency");
+
+        jMenuItem1.setText("Gross intake ratio in first grade of primary education, female (% of relevant age group)");
+        jMenu12.add(jMenuItem1);
+
+        jMenuItem2.setText("Gross intake ratio in first grade of primary education, male (% of relevant age group) ");
+        jMenu12.add(jMenuItem2);
+
+        jMenu1.add(jMenu12);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jMenu2.setText("Health");
+
+        jMenu13.setText("Diesease Prevention");
+
+        jMenuItem3.setText("Condom use, population ages 15-24, female (% of females ages 15-24) ");
+        jMenu13.add(jMenuItem3);
+
+        jMenu2.add(jMenu13);
+
+        jMenu14.setText("Health Service");
+
+        jMenuItem4.setText("Hospital beds (per 1,000 people) ");
+        jMenu14.add(jMenuItem4);
+
+        jMenu2.add(jMenu14);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -190,6 +223,9 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -199,6 +235,10 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private com.esiee.mbdaihm.tps.Map map1;
     private java.awt.Menu menu1;
     private java.awt.MenuBar menuBar1;
