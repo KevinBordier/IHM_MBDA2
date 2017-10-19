@@ -45,6 +45,7 @@ class ColorProvider {
             min = stats.getMin();
             step = (max-min)/5;
             lastComputedIndicator = toTest;
+            DataManager.INSTANCE.setCurrentIndicator(toTest);
         }
 
         double val = country.getValueForYear(year);
