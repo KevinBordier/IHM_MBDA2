@@ -11,7 +11,6 @@ import com.esiee.mbdaihm.dataaccess.wdi.WDIDataDecoder;
 import com.esiee.mbdaihm.datamodel.DataManager;
 import com.esiee.mbdaihm.datamodel.countries.Country;
 import com.esiee.mbdaihm.datamodel.indicators.Indicator;
-import static com.esiee.mbdaihm.tps.EditYear.currentYear;
 import static com.esiee.mbdaihm.tps.LegendProvider.*;
 import java.awt.Color;
 import java.awt.Paint;
@@ -31,7 +30,7 @@ class ColorProvider {
     
     
     
-    static Paint getColorForCountry(Country country, String codeIndic) {
+    static Paint getColorForCountry(Country country, String codeIndic, int currentYear) {
         Indicator toTest = DataManager.INSTANCE.getIndicators().
                     filter(i->i.getCode().equals(codeIndic)).findFirst().get();
 
@@ -47,6 +46,7 @@ class ColorProvider {
             min = stats.getMin();
             step = (max-min)/5;
             lastComputedIndicator = toTest;
+            DataManager.INSTANCE.setCurrentIndicator(lastComputedIndicator);
         }
 
         double val = country.getValueForYear(currentYear);

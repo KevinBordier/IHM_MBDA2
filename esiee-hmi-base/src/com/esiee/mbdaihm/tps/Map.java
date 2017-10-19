@@ -31,8 +31,9 @@ import java.util.List;
  *
  * @author ELODIECAROY
  */
-public class Map extends JPanel{
+public class Map extends JPanel implements YearListener{
 
+    public static Map instance = new Map();
     private float zoom;
     private int x;
     private int y;
@@ -42,7 +43,7 @@ public class Map extends JPanel{
     private double min;
     private double step;
     //private int year;
-    private EditYear year;
+    private int currentYear;
 
     public Map() {
             zoom = 1.0f;
@@ -50,10 +51,10 @@ public class Map extends JPanel{
             y = 0;
             diffX=0;
             diffY=0;
-            year = new EditYear();
+            //year = new EditYear();
             min = 0;
             step = 0;
-            
+            currentYear = 1960;
             
             
             addMouseWheelListener(new MouseWheelListener(){
@@ -128,13 +129,14 @@ public class Map extends JPanel{
             });
         
     }
-    
+    public static Map getInstance(){
+        return instance;
+    }
        
     
     @Override
     protected void paintComponent(Graphics g){
         
-        if(true);
         
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -159,11 +161,18 @@ public class Map extends JPanel{
                 path.closePath();
                 g2d.setPaint(Color.BLACK);
                 g2d.draw(path);
-                g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN"));
+                g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",currentYear));
                 g2d.fill(path);
 
             }      
         }
-        
+    } 
+
+    @Override
+    public void yearModified(int year) {
+        currentYear = year;
+        Map.this.repaint();
     }
+    
+    
 }

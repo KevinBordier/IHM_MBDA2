@@ -11,6 +11,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
@@ -24,18 +26,21 @@ import javax.swing.event.ChangeListener;
  */
 public class EditYear extends JPanel{
     
-    
-    public static int currentYear = 1960;
+    private List<YearListener>listeners = new ArrayList<YearListener>();
+    private int currentYear;
     JLabel lYear= new JLabel("Year:");
     JTextField tfYear = new JTextField(""+1960, 6);
     JSlider sYear = new JSlider(JSlider.HORIZONTAL,1960,2015, 1960);
     
     public EditYear(){
+        //instance.
+        currentYear = 1960;
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         lYear.setOpaque(true);
         tfYear.setOpaque(true);
         sYear.setPaintLabels(true);
+        
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
@@ -57,6 +62,8 @@ public class EditYear extends JPanel{
         c.gridwidth = 2;
         this.add(sYear, c);
         
+        
+        
         sYear.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
@@ -65,6 +72,9 @@ public class EditYear extends JPanel{
                     int changeYear = (int)source.getValue();
                     tfYear.setText(""+changeYear);
                     currentYear = changeYear;
+                    for(YearListener yl : listeners){
+                        yl.yearModified(currentYear);
+                    }
                 }
             }
         });
@@ -74,14 +84,19 @@ public class EditYear extends JPanel{
                 String text = tfYear.getText();
                 currentYear = Integer.parseInt(text);
                 sYear.setValue(currentYear);
+                for(YearListener yl : listeners){
+                    yl.yearModified(currentYear);
+                }
             }
         });
     }
     
-    /*
+    
     public int getCurrentYear(){
         return currentYear;
-    }*/
+    }
     
-    
+    public void addListener(YearListener toAdd){
+        listeners.add(toAdd);
+    }
 }
