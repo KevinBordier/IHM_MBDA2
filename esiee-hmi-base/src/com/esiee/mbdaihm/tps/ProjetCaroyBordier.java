@@ -20,6 +20,7 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
     public ProjetCaroyBordier() {
         initComponents();
         editYear2.addListener(map1);
+        editZoom4.addListener(map1);
     }
     
     /*private void display(){

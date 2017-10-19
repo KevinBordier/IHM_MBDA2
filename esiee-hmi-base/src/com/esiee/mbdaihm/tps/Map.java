@@ -31,7 +31,7 @@ import java.util.List;
  *
  * @author ELODIECAROY
  */
-public class Map extends JPanel implements YearListener{
+public class Map extends JPanel implements YearListener, ZoomListener{
 
     public static Map instance = new Map();
     private float zoom;
@@ -163,7 +163,6 @@ public class Map extends JPanel implements YearListener{
                 g2d.draw(path);
                 g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",currentYear));
                 g2d.fill(path);
-
             }      
         }
     } 
@@ -173,6 +172,25 @@ public class Map extends JPanel implements YearListener{
         currentYear = year;
         Map.this.repaint();
     }
+
+    @Override
+    public void zoomOutModified(int pZoom) {
+        zoom = pZoom*1.1f;
+        Map.this.repaint();
+    }
+
+    @Override
+    public void zoomInModified(int pZoom) {
+        zoom = pZoom/1.1f;
+        Map.this.repaint();
+    }
+    
+    @Override
+    public void refreshZoom(int pZoom) {
+        zoom = 1.0f;
+        Map.this.repaint();
+    }
+    
     
     
 }

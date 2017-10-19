@@ -35,7 +35,7 @@ public class SearchCountry extends JPanel{
                 country = tfSearch.getText();
             }
         });
-        
+        //string.contains....
     }
     
     

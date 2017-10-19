@@ -7,7 +7,8 @@ package com.esiee.mbdaihm.tps;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,11 +21,14 @@ import javax.swing.event.ChangeListener;
  * @author Kévin
  */
 public class EditZoom extends JPanel{
-    public static int factor = 0;
+    
+    private List<ZoomListener>listeners = new ArrayList<ZoomListener>();
+    private int factor;
     private JSpinner zoomFactor;
     private JLabel lZoom;
     
     public EditZoom(){
+        factor = 0;
         zoomFactor = new JSpinner();
         Component mySpinnerEditor = zoomFactor.getEditor();
         JFormattedTextField jftf = ((JSpinner.DefaultEditor) mySpinnerEditor).getTextField();
@@ -37,9 +41,39 @@ public class EditZoom extends JPanel{
         zoomFactor.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                factor = (Integer)zoomFactor.getValue();
+                if((Integer)zoomFactor.getValue()==0){
+                    factor = (Integer)zoomFactor.getValue();
+                    for(ZoomListener zl : listeners){
+                        zl.refreshZoom(factor);
+                    }
+                }
+                else{
+                    if(factor > (Integer)zoomFactor.getValue())
+                {
+                    factor = (Integer)zoomFactor.getValue();
+                    for(ZoomListener zl : listeners){
+                        zl.zoomInModified(factor);
+                    }                
+                }
+                else{
+                    factor = (Integer)zoomFactor.getValue();
+                    for(ZoomListener zl : listeners){
+                        zl.zoomOutModified(factor);
+                    }
+                }
+                }
+                
             }
         });
+        //zoomFactor.add
+    }
+    
+    public int getFactor(){
+        return factor;
+    }
+    
+    public void addListener(ZoomListener toAdd){
+        listeners.add(toAdd);
     }
     
 }
