@@ -41,8 +41,8 @@ public class Map extends JPanel{
     private double max;
     private double min;
     private double step;
-    private int year;
-    private CalculIndicator myColor;
+    //private int year;
+    private EditYear year;
 
     public Map() {
             zoom = 1.0f;
@@ -50,30 +50,11 @@ public class Map extends JPanel{
             y = 0;
             diffX=0;
             diffY=0;
-            year = 1995;
+            year = new EditYear();
             min = 0;
             step = 0;
-            //myColor = new  CalculIndicator("ceci est un code");
-            //indic = WDIIndicatorsDecoder.decode(Launch.WDI_FOLDER);
-            /*
-            Indicator toTest = DataManager.INSTANCE.getIndicators().
-                    filter(i->i.getCode().equals("SP.DYN.LE00.FE.IN")).findFirst().get();
-
-
-            List<RawWDIData> lifeExpectancyWomen
-                    = WDIDataDecoder.decode(Launch.WDI_FOLDER,toTest.getCode() );
-            DoubleSummaryStatistics stats = lifeExpectancyWomen.stream().
-                    mapToDouble(rd -> rd.getValueForYear(""+year)).
-                    filter(d -> !(Double.isNaN(d))).
-                    summaryStatistics();
-
-            DataManager.INSTANCE.setCurrentIndicator(toTest);
-            max = stats.getMax();
-            min = stats.getMin();
-
-
-            step = (max-min)/5;
-            */
+            
+            
             
             addMouseWheelListener(new MouseWheelListener(){
                 @Override
@@ -178,43 +159,11 @@ public class Map extends JPanel{
                 path.closePath();
                 g2d.setPaint(Color.BLACK);
                 g2d.draw(path);
-                //g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",1995));
-                //g2d.setPaint(Color.GRAY);
-                g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",year));
+                g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN"));
                 g2d.fill(path);
-                /*double val = country.getValueForYear(year);
-                if(val>min+4*step){
-                    g2d.setPaint(Color.CYAN);
-                    g2d.fill(path);
-                }
-                if(val<=min+4*step){
-                    g2d.setPaint(Color.RED);
-                    g2d.fill(path);
-                }if(val<=min+3*step){
-                    g2d.setPaint(Color.GREEN);
-                    g2d.fill(path);
-                }if(val<=min+2*step){
-                    g2d.setPaint(Color.YELLOW);
-                    g2d.fill(path);
-                }if(val<=min+step){
-                    g2d.setPaint(Color.PINK);
-                    g2d.fill(path);
-                }
-                
-                /*if("FRA".equals(country.getIsoCode())){
-                    g2d.setPaint(Color.CYAN);
-                    g2d.fill(path);
-                }*/
+
             }      
         }
         
-        
-        /*g2d.setPaint(Color.BLACK);
-        GeneralPath triangle = new GeneralPath();
-        triangle.moveTo(200,200);
-        triangle.lineTo(100, 300);
-        triangle.lineTo(300, 300);
-        triangle.closePath();
-        g2d.draw(triangle);*/
     }
 }

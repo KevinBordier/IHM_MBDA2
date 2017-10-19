@@ -7,11 +7,13 @@
             <file>file:/D:/nmortier/Desktop/Formations/Cours%20ESIEE/2017/Livraison/esiee-hmi-base/src/com/esiee/mbdaihm/exercise/SeriesCheck.java</file>
         </group>
         <group>
-            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA/esiee-hmi-base/src/com/esiee/mbdaihm/tps/ProjetCaroyBordier.java</file>
-            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA/esiee-hmi-base/src/com/esiee/mbdaihm/tps/Map.java</file>
-            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA/esiee-hmi-base/src/com/esiee/mbdaihm/tps/ColorProvider.java</file>
-            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA/esiee-hmi-base/src/com/esiee/mbdaihm/tps/CalculIndicator.java</file>
-            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA/esiee-hmi-base/src/com/esiee/mbdaihm/Launch.java</file>
+            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/Map.java</file>
+            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/ProjetCaroyBordier.java</file>
+            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/LegendProvider.java</file>
+            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/ColorProvider.java</file>
+            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/SearchCountry.java</file>
+            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/EditZoom.java</file>
+            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/EditYear.java</file>
         </group>
     </open-files>
 </project-private>
