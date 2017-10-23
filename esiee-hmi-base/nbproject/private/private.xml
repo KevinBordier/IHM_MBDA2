@@ -11,9 +11,9 @@
             <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/ProjetCaroyBordier.java</file>
             <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/LegendProvider.java</file>
             <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/ColorProvider.java</file>
-            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/SearchCountry.java</file>
-            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/EditZoom.java</file>
+            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/LegendListener.java</file>
             <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/EditYear.java</file>
+            <file>file:/D:/ESIEE/E5/IHM/IHM_MBDA2/esiee-hmi-base/src/com/esiee/mbdaihm/tps/YearListener.java</file>
         </group>
     </open-files>
 </project-private>

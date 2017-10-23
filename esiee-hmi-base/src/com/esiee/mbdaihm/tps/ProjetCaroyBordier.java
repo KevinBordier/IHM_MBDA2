@@ -21,6 +21,7 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         initComponents();
         editYear2.addListener(map1);
         editZoom4.addListener(map1);
+        map1.addListeners(legendProvider1);
     }
     
     /*private void display(){

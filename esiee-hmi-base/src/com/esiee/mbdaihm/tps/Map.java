@@ -24,6 +24,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,12 +40,12 @@ public class Map extends JPanel implements YearListener, ZoomListener{
     private int y;
     private int diffX;
     private int diffY;
-    private double max;
-    private double min;
-    private double step;
+    private double minMap;
+    private double stepMap;
     //private int year;
     private int currentYear;
-
+    private List<LegendListener>listeners = new ArrayList<LegendListener>();
+    
     public Map() {
             zoom = 1.0f;
             x = 0;
@@ -52,8 +53,8 @@ public class Map extends JPanel implements YearListener, ZoomListener{
             diffX=0;
             diffY=0;
             //year = new EditYear();
-            min = 0;
-            step = 0;
+            minMap = 0;
+            stepMap = 0;
             currentYear = 1960;
             
             
@@ -165,8 +166,14 @@ public class Map extends JPanel implements YearListener, ZoomListener{
                 g2d.fill(path);
             }      
         }
+        if(minMap !=ColorProvider.getMin() && stepMap !=ColorProvider.getStep() ){
+            for(LegendListener ll : listeners){
+                ll.setMin(ColorProvider.getMin());
+                ll.setStep(ColorProvider.getStep());
+            }
+        }
     } 
-
+    
     @Override
     public void yearModified(int year) {
         currentYear = year;
@@ -189,6 +196,19 @@ public class Map extends JPanel implements YearListener, ZoomListener{
     public void refreshZoom(int pZoom) {
         zoom = 1.0f;
         Map.this.repaint();
+    }
+/*
+    @Override
+    public void setMin(int pMin) {
+        minMap = pMin;
+    }
+
+    @Override
+    public void setStep(int pStep) {
+        step = pStep;
+    }*/
+    public void addListeners(LegendListener toAdd){
+        listeners.add(toAdd);
     }
     
     

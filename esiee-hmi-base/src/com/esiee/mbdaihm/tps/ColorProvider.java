@@ -24,10 +24,10 @@ import java.util.List;
 class ColorProvider {
 
     private static Indicator lastComputedIndicator = null;
-    public static double max;
-    public static double min;
-    public static double step;
-    
+    private static double max;
+    private static double min;
+    private static double step;
+    private double myMin;
     
     
     static Paint getColorForCountry(Country country, String codeIndic, int currentYear) {
@@ -62,8 +62,16 @@ class ColorProvider {
         }if(val<=min+step){
             return col5;
         }
-        //LegendProvider.setLegend();
         return col6;
     }
-    
+
+    static double getMin() {
+        System.out.println("Envoie de min: " + min);
+       return min; 
+    }
+
+    static double getStep() {
+        return step;
+    }
+       
 }
