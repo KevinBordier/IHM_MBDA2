@@ -5,8 +5,12 @@
  */
 package com.esiee.mbdaihm.tps;
 
+import com.esiee.mbdaihm.datamodel.DataManager;
+import com.esiee.mbdaihm.datamodel.indicators.Indicator;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -19,6 +23,14 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
      */
     public ProjetCaroyBordier() {
         initComponents();
+        jMenuItem1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                map1.setNomIndic(jMenuItem1.getText());
+                map1.repaint();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
     }
     
     /*private void display(){
@@ -44,22 +56,40 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         map1 = new com.esiee.mbdaihm.tps.Map();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu13 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu14 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panel1.setPreferredSize(new java.awt.Dimension(250, 396));
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
         );
 
         getContentPane().add(panel1, java.awt.BorderLayout.LINE_END);
@@ -68,11 +98,11 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         map1.setLayout(map1Layout);
         map1Layout.setHorizontalGroup(
             map1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
         map1Layout.setVerticalGroup(
             map1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
@@ -88,16 +118,105 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
 
         getContentPane().add(panel2, java.awt.BorderLayout.CENTER);
 
-        jMenu1.setText("File");
+        jMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu1.setText("Education");
+
+        jMenu12.setText("Efficiency");
+
+        jMenuItem1.setText("Gross intake ratio in first grade of primary education, female (% of relevant age group)");
+        jMenu12.add(jMenuItem1);
+
+        jMenuItem2.setText("Gross intake ratio in first grade of primary education, male (% of relevant age group) ");
+        jMenu12.add(jMenuItem2);
+
+        jMenu1.add(jMenu12);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu2.setText("Health");
+
+        jMenu13.setText("Diesease Prevention");
+
+        jMenuItem3.setText("Condom use, population ages 15-24, female (% of females ages 15-24) ");
+        jMenu13.add(jMenuItem3);
+
+        jMenu2.add(jMenu13);
+
+        jMenu14.setText("Health Service");
+
+        jMenuItem4.setText("Hospital beds (per 1,000 people) ");
+        jMenu14.add(jMenuItem4);
+
+        jMenu2.add(jMenu14);
+
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu3.setText("Economy");
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu4.setText("Environment");
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu5.setText("Finance");
+        jMenuBar1.add(jMenu5);
+
+        jMenu6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu6.setText("Infrastructure");
+        jMenuBar1.add(jMenu6);
+
+        jMenu7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu7.setText("Poverty");
+        jMenuBar1.add(jMenu7);
+
+        jMenu8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu8.setText("Private");
+        jMenuBar1.add(jMenu8);
+
+        jMenu9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu9.setText("Public");
+        jMenuBar1.add(jMenu9);
+
+        jMenu10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu10.setText("Social");
+        jMenuBar1.add(jMenu10);
+
+        jMenu11.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELODIECAROY\\Pictures\\menu.png")); // NOI18N
+        jMenu11.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu11MenuSelected(evt);
+            }
+        });
+        jMenu11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu11ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu11);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu11ActionPerformed
+        // TODO add your handling code here:
+        JDialog save = new JDialog(this, "save", true);
+        save.setVisible(true);
+    }//GEN-LAST:event_jMenu11ActionPerformed
+
+    private void jMenu11MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu11MenuSelected
+        // TODO add your handling code here:
+        JDialog save = new saveDialog(this);
+        save.setVisible(true);
+    }//GEN-LAST:event_jMenu11MenuSelected
 
     /**
      * @param args the command line arguments
@@ -140,8 +259,24 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private com.esiee.mbdaihm.tps.Map map1;
     private java.awt.Menu menu1;
     private java.awt.MenuBar menuBar1;
