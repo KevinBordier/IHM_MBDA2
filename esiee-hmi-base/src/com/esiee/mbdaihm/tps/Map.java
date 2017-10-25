@@ -42,6 +42,7 @@ public class Map extends JPanel{
     private double min;
     private double step;
     private int year;
+    private String nomindic;
     private CalculIndicator myColor;
 
     public Map() {
@@ -148,7 +149,9 @@ public class Map extends JPanel{
         
     }
     
-       
+    public void setNomIndic(String str){
+        nomindic = str;
+    }
     
     @Override
     protected void paintComponent(Graphics g){
@@ -180,7 +183,9 @@ public class Map extends JPanel{
                 g2d.draw(path);
                 //g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",1995));
                 //g2d.setPaint(Color.GRAY);
-                g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",year));
+                if(nomindic != null){
+                   g2d.setPaint(ColorProvider.getColorForCountry(country,nomindic,year));
+                }
                 g2d.fill(path);
                 /*double val = country.getValueForYear(year);
                 if(val>min+4*step){

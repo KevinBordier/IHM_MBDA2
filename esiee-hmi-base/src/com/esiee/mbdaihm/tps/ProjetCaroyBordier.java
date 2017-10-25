@@ -5,8 +5,12 @@
  */
 package com.esiee.mbdaihm.tps;
 
+import com.esiee.mbdaihm.datamodel.DataManager;
+import com.esiee.mbdaihm.datamodel.indicators.Indicator;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -19,6 +23,14 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
      */
     public ProjetCaroyBordier() {
         initComponents();
+        jMenuItem1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                map1.setNomIndic(jMenuItem1.getText());
+                map1.repaint();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
     }
     
     /*private void display(){

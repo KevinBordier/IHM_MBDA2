@@ -7,6 +7,7 @@ package com.esiee.mbdaihm.tps;
 
 import com.esiee.mbdaihm.datamodel.DataManager;
 import java.awt.AWTException;
+import java.awt.Container;
 import java.awt.Dialog;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -214,6 +215,10 @@ public class saveDialog extends JDialog{
         else if(jpgB.isSelected() == true){
             namefile += ".jpg";
             this.dispose();
+            
+            Container content = this.getParent();
+            //BufferedImage image = new BufferedImage(content.getWidth(), content.getHeight(), BufferedImage.TYPE_INT_RGB);
+            
             BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
             ImageIO.write(image, "jpg", new File(namefile));
         }

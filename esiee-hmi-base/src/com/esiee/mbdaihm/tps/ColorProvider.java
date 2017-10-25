@@ -31,7 +31,7 @@ class ColorProvider {
     
     static Paint getColorForCountry(Country country, String codeIndic, int year) {
         Indicator toTest = DataManager.INSTANCE.getIndicators().
-                    filter(i->i.getCode().equals(codeIndic)).findFirst().get();
+                    filter(i->i.getName().equals(codeIndic)).findFirst().get();
 
         if(toTest != lastComputedIndicator){
             List<RawWDIData> myIndicatorToMap
