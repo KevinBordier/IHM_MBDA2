@@ -21,7 +21,7 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         initComponents();
         editYear2.addListener(map1);
         editZoom4.addListener(map1);
-        map1.addListeners(legendProvider1);
+        map1.addListeners(legendProvider2);
     }
     
     /*private void display(){
@@ -47,10 +47,11 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         panel1 = new java.awt.Panel();
         editYear2 = new com.esiee.mbdaihm.tps.EditYear();
         jSeparator1 = new javax.swing.JSeparator();
-        legendProvider1 = new com.esiee.mbdaihm.tps.LegendProvider();
         jSeparator2 = new javax.swing.JSeparator();
         editZoom4 = new com.esiee.mbdaihm.tps.EditZoom();
         searchCountry2 = new com.esiee.mbdaihm.tps.SearchCountry();
+        jLabel1 = new javax.swing.JLabel();
+        legendProvider2 = new com.esiee.mbdaihm.tps.LegendProvider();
         panel2 = new java.awt.Panel();
         map1 = new com.esiee.mbdaihm.tps.Map();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -64,19 +65,24 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
 
         panel1.setMaximumSize(new java.awt.Dimension(500, 500));
 
+        jLabel1.setText("Legend :");
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(editYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(jSeparator1)
             .addComponent(jSeparator2)
-            .addComponent(legendProvider1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(searchCountry2, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(editZoom4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(searchCountry2, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+            .addComponent(legendProvider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,13 +90,15 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
                 .addComponent(editYear2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(legendProvider1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(legendProvider2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchCountry2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(editZoom4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -176,12 +184,13 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
     private com.esiee.mbdaihm.tps.EditZoom editZoom1;
     private com.esiee.mbdaihm.tps.EditZoom editZoom2;
     private com.esiee.mbdaihm.tps.EditZoom editZoom4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private com.esiee.mbdaihm.tps.LegendProvider legendProvider1;
+    private com.esiee.mbdaihm.tps.LegendProvider legendProvider2;
     private com.esiee.mbdaihm.tps.Map map1;
     private java.awt.Menu menu1;
     private java.awt.MenuBar menuBar1;

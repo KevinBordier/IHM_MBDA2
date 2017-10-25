@@ -197,16 +197,7 @@ public class Map extends JPanel implements YearListener, ZoomListener{
         zoom = 1.0f;
         Map.this.repaint();
     }
-/*
-    @Override
-    public void setMin(int pMin) {
-        minMap = pMin;
-    }
 
-    @Override
-    public void setStep(int pStep) {
-        step = pStep;
-    }*/
     public void addListeners(LegendListener toAdd){
         listeners.add(toAdd);
     }
