@@ -43,14 +43,16 @@ class ColorProvider {
                     summaryStatistics();
 
             max = stats.getMax();
+            if(max == Double.POSITIVE_INFINITY){
+                max = 0.0;
+            }
             min = stats.getMin();
+            if(min == Double.POSITIVE_INFINITY){
+                min = 0.0;
+            }
             step = (max-min)/5;
             lastComputedIndicator = toTest;
-//<<<<<<< HEAD
-            //DataManager.INSTANCE.setCurrentIndicator(toTest);
-//=======
             DataManager.INSTANCE.setCurrentIndicator(lastComputedIndicator);
-//>>>>>>> Kev
         }
 
         double val = country.getValueForYear(currentYear);

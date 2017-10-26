@@ -23,7 +23,6 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
      */
     public ProjetCaroyBordier() {
         initComponents();
-
         jMenuItem1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
