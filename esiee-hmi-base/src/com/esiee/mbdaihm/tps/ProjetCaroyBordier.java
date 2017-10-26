@@ -23,7 +23,7 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
      */
     public ProjetCaroyBordier() {
         initComponents();
-//<<<<<<< HEAD
+
         jMenuItem1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,11 +32,38 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
-//=======
+
+        jMenuItem2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                map1.setNomIndic(jMenuItem2.getText());
+                map1.repaint();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        jMenuItem3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                map1.setNomIndic(jMenuItem3.getText());
+                map1.repaint();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        jMenuItem4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                map1.setNomIndic(jMenuItem4.getText());
+                map1.repaint();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+
+
         editYear2.addListener(map1);
         editZoom4.addListener(map1);
         map1.addListeners(legendProvider2);
-//>>>>>>> Kev
+
+
     }
     
     /*private void display(){
@@ -94,25 +121,16 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-<<<<<<< HEAD
-        panel1.setPreferredSize(new java.awt.Dimension(250, 396));
-=======
+
         panel1.setMaximumSize(new java.awt.Dimension(500, 500));
 
         jLabel1.setText("Legend :");
->>>>>>> Kev
+
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGap(0, 250, Short.MAX_VALUE)
-        );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 409, Short.MAX_VALUE)
-=======
             .addComponent(editYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(jSeparator2)
             .addComponent(searchCountry2, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
@@ -143,7 +161,6 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(editZoom4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
->>>>>>> Kev
         );
 
         getContentPane().add(panel1, java.awt.BorderLayout.LINE_END);
@@ -152,19 +169,11 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         map1.setLayout(map1Layout);
         map1Layout.setHorizontalGroup(
             map1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGap(0, 360, Short.MAX_VALUE)
-        );
-        map1Layout.setVerticalGroup(
-            map1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 409, Short.MAX_VALUE)
-=======
             .addGap(0, 524, Short.MAX_VALUE)
         );
         map1Layout.setVerticalGroup(
             map1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 451, Short.MAX_VALUE)
->>>>>>> Kev
         );
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
@@ -188,7 +197,8 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         jMenuItem1.setText("Gross intake ratio in first grade of primary education, female (% of relevant age group)");
         jMenu12.add(jMenuItem1);
 
-        jMenuItem2.setText("Gross intake ratio in first grade of primary education, male (% of relevant age group) ");
+        jMenuItem2.setText("Gross intake ratio in first grade of primary education, male (% of relevant age group)");
+        jMenuItem2.setActionCommand(")");
         jMenu12.add(jMenuItem2);
 
         jMenu1.add(jMenu12);
@@ -200,14 +210,14 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
 
         jMenu13.setText("Diesease Prevention");
 
-        jMenuItem3.setText("Condom use, population ages 15-24, female (% of females ages 15-24) ");
+        jMenuItem3.setText("Condom use, population ages 15-24, female (% of females ages 15-24)");
         jMenu13.add(jMenuItem3);
 
         jMenu2.add(jMenu13);
 
         jMenu14.setText("Health Service");
 
-        jMenuItem4.setText("Hospital beds (per 1,000 people) ");
+        jMenuItem4.setText("Hospital beds (per 1,000 people)");
         jMenu14.add(jMenuItem4);
 
         jMenu2.add(jMenu14);
@@ -246,7 +256,7 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         jMenu10.setText("Social");
         jMenuBar1.add(jMenu10);
 
-        jMenu11.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELODIECAROY\\Pictures\\menu.png")); // NOI18N
+        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu.png"))); // NOI18N
         jMenu11.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }

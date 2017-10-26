@@ -39,7 +39,8 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Gross intake ratio in first grade of primary education, male (% of relevant age group) "/>
+                    <Property name="text" type="java.lang.String" value="Gross intake ratio in first grade of primary education, male (% of relevant age group)"/>
+                    <Property name="actionCommand" type="java.lang.String" value=")"/>
                   </Properties>
                 </MenuItem>
               </SubComponents>
@@ -63,7 +64,7 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Condom use, population ages 15-24, female (% of females ages 15-24) "/>
+                    <Property name="text" type="java.lang.String" value="Condom use, population ages 15-24, female (% of females ages 15-24)"/>
                   </Properties>
                 </MenuItem>
               </SubComponents>
@@ -75,7 +76,7 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Hospital beds (per 1,000 people) "/>
+                    <Property name="text" type="java.lang.String" value="Hospital beds (per 1,000 people)"/>
                   </Properties>
                 </MenuItem>
               </SubComponents>
@@ -165,7 +166,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu11">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\ELODIECAROY\Pictures\menu.png"/>
+              <Image iconType="3" name="/menu.png"/>
             </Property>
           </Properties>
           <Events>
