@@ -11,6 +11,7 @@ import com.esiee.mbdaihm.dataaccess.wdi.WDIDataDecoder;
 import com.esiee.mbdaihm.datamodel.DataManager;
 import com.esiee.mbdaihm.datamodel.countries.Country;
 import com.esiee.mbdaihm.datamodel.indicators.Indicator;
+import static com.esiee.mbdaihm.tps.LegendProvider.*;
 import java.awt.Color;
 import java.awt.Paint;
 import java.util.DoubleSummaryStatistics;
@@ -26,10 +27,10 @@ class ColorProvider {
     private static double max;
     private static double min;
     private static double step;
+    private double myMin;
     
     
-    
-    static Paint getColorForCountry(Country country, String codeIndic, int year) {
+    static Paint getColorForCountry(Country country, String codeIndic, int currentYear) {
         Indicator toTest = DataManager.INSTANCE.getIndicators().
                     filter(i->i.getName().equals(codeIndic)).findFirst().get();
 
@@ -37,7 +38,7 @@ class ColorProvider {
             List<RawWDIData> myIndicatorToMap
                         = WDIDataDecoder.decode(Launch.WDI_FOLDER,toTest.getCode() );
             DoubleSummaryStatistics stats = myIndicatorToMap.stream().
-                    mapToDouble(rd -> rd.getValueForYear(""+year)).
+                    mapToDouble(rd -> rd.getValueForYear(""+currentYear)).
                     filter(d -> !(Double.isNaN(d))).
                     summaryStatistics();
 
@@ -45,23 +46,35 @@ class ColorProvider {
             min = stats.getMin();
             step = (max-min)/5;
             lastComputedIndicator = toTest;
-            DataManager.INSTANCE.setCurrentIndicator(toTest);
+//<<<<<<< HEAD
+            //DataManager.INSTANCE.setCurrentIndicator(toTest);
+//=======
+            DataManager.INSTANCE.setCurrentIndicator(lastComputedIndicator);
+//>>>>>>> Kev
         }
 
-        double val = country.getValueForYear(year);
+        double val = country.getValueForYear(currentYear);
         if(val>min+4*step){
-            return Color.CYAN;
+            return col1;
         }
         if(val<=min+4*step){
-            return Color.RED;
+            return col2;
         }if(val<=min+3*step){
-            return Color.GREEN;
+            return col3;
         }if(val<=min+2*step){
-            return Color.YELLOW;
+            return col4;
         }if(val<=min+step){
-            return Color.PINK;
+            return col5;
         }
-        return Color.GRAY;
+        return col6;
     }
-    
+
+    static double getMin() {
+       return min; 
+    }
+
+    static double getStep() {
+        return step;
+    }
+       
 }
