@@ -9,6 +9,7 @@ import com.esiee.mbdaihm.datamodel.DataManager;
 import java.awt.AWTException;
 import java.awt.Container;
 import java.awt.Dialog;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -198,7 +199,13 @@ public class saveDialog extends JDialog{
     public void sauvegarde() throws AWTException, IOException{
         
         String namefile = "";
-        String indic = DataManager.INSTANCE.getCurrentIndicator().getCode();
+        String indic;
+        if(DataManager.INSTANCE.getCurrentIndicator() == null){
+            indic = "noIndic";
+        }
+        else {
+            indic = DataManager.INSTANCE.getCurrentIndicator().getCode();
+        }
         indic = indic.replace(".", "_");
         if(jText.getText().length() > 0){
             namefile = jText.getText();
@@ -217,14 +224,16 @@ public class saveDialog extends JDialog{
             this.dispose();
             
             Container content = this.getParent();
-            //BufferedImage image = new BufferedImage(content.getWidth(), content.getHeight(), BufferedImage.TYPE_INT_RGB);
-            
-            BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+            System.out.println(content);
+            BufferedImage image = new BufferedImage(content.getWidth(), content.getHeight(), BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics2D = image.createGraphics();
+            content.paint(graphics2D);
+            //BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
             ImageIO.write(image, "jpg", new File(namefile));
         }
         else System.out.println("error rb");
 
-        System.out.println(namefile);
+        //System.out.println(namefile);
     }
     
 }
