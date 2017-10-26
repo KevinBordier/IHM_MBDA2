@@ -72,6 +72,7 @@ class ColorProvider {
     }
 
     static double getMin() {
+        System.out.println(min);
        return min; 
     }
 
