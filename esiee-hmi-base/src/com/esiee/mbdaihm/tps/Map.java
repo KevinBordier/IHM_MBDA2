@@ -40,22 +40,15 @@ public class Map extends JPanel implements YearListener, ZoomListener{
     private int y;
     private int diffX;
     private int diffY;
-//<<<<<<< HEAD
-    private double max;
-    private double min;
-    private double step;
-    private int year;
-    private String nomindic;
-    private CalculIndicator myColor;
 
-//=======
     private double minMap;
     private double stepMap;
     //private int year;
+    private String nomindic;
     private int currentYear;
     private List<LegendListener>listeners = new ArrayList<LegendListener>();
     
-//>>>>>>> Kev
+
     public Map() {
             zoom = 1.0f;
             x = 0;
@@ -140,17 +133,15 @@ public class Map extends JPanel implements YearListener, ZoomListener{
             });
         
     }
-//<<<<<<< HEAD
-    
+   
     public void setNomIndic(String str){
         nomindic = str;
     }
-//=======
+
     public static Map getInstance(){
         return instance;
     }
-       
-//>>>>>>> Kev
+
     
     @Override
     protected void paintComponent(Graphics g){
@@ -179,15 +170,12 @@ public class Map extends JPanel implements YearListener, ZoomListener{
                 path.closePath();
                 g2d.setPaint(Color.BLACK);
                 g2d.draw(path);
-//<<<<<<< HEAD
-                //g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",1995));
-                //g2d.setPaint(Color.GRAY);
+
                 if(nomindic != null){
-                   g2d.setPaint(ColorProvider.getColorForCountry(country,nomindic,year));
-                }/*
-=======
-                g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",currentYear));
->>>>>>> Kev*/
+                   g2d.setPaint(ColorProvider.getColorForCountry(country,nomindic,currentYear));
+                }
+
+
                 g2d.fill(path);
             }      
         }
