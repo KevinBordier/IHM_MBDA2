@@ -24,6 +24,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -31,13 +32,15 @@ import java.util.List;
  *
  * @author ELODIECAROY
  */
-public class Map extends JPanel{
+public class Map extends JPanel implements YearListener, ZoomListener{
 
+    public static Map instance = new Map();
     private float zoom;
     private int x;
     private int y;
     private int diffX;
     private int diffY;
+//<<<<<<< HEAD
     private double max;
     private double min;
     private double step;
@@ -45,36 +48,25 @@ public class Map extends JPanel{
     private String nomindic;
     private CalculIndicator myColor;
 
+//=======
+    private double minMap;
+    private double stepMap;
+    //private int year;
+    private int currentYear;
+    private List<LegendListener>listeners = new ArrayList<LegendListener>();
+    
+//>>>>>>> Kev
     public Map() {
             zoom = 1.0f;
             x = 0;
             y = 0;
             diffX=0;
             diffY=0;
-            year = 1995;
-            min = 0;
-            step = 0;
-            //myColor = new  CalculIndicator("ceci est un code");
-            //indic = WDIIndicatorsDecoder.decode(Launch.WDI_FOLDER);
-            /*
-            Indicator toTest = DataManager.INSTANCE.getIndicators().
-                    filter(i->i.getCode().equals("SP.DYN.LE00.FE.IN")).findFirst().get();
-
-
-            List<RawWDIData> lifeExpectancyWomen
-                    = WDIDataDecoder.decode(Launch.WDI_FOLDER,toTest.getCode() );
-            DoubleSummaryStatistics stats = lifeExpectancyWomen.stream().
-                    mapToDouble(rd -> rd.getValueForYear(""+year)).
-                    filter(d -> !(Double.isNaN(d))).
-                    summaryStatistics();
-
-            DataManager.INSTANCE.setCurrentIndicator(toTest);
-            max = stats.getMax();
-            min = stats.getMin();
-
-
-            step = (max-min)/5;
-            */
+            //year = new EditYear();
+            minMap = 0;
+            stepMap = 0;
+            currentYear = 1960;
+            
             
             addMouseWheelListener(new MouseWheelListener(){
                 @Override
@@ -148,15 +140,21 @@ public class Map extends JPanel{
             });
         
     }
+//<<<<<<< HEAD
     
     public void setNomIndic(String str){
         nomindic = str;
     }
+//=======
+    public static Map getInstance(){
+        return instance;
+    }
+       
+//>>>>>>> Kev
     
     @Override
     protected void paintComponent(Graphics g){
         
-        if(true);
         
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -181,45 +179,54 @@ public class Map extends JPanel{
                 path.closePath();
                 g2d.setPaint(Color.BLACK);
                 g2d.draw(path);
+//<<<<<<< HEAD
                 //g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",1995));
                 //g2d.setPaint(Color.GRAY);
                 if(nomindic != null){
                    g2d.setPaint(ColorProvider.getColorForCountry(country,nomindic,year));
-                }
+                }/*
+=======
+                g2d.setPaint(ColorProvider.getColorForCountry(country,"SP.DYN.LE00.FE.IN",currentYear));
+>>>>>>> Kev*/
                 g2d.fill(path);
-                /*double val = country.getValueForYear(year);
-                if(val>min+4*step){
-                    g2d.setPaint(Color.CYAN);
-                    g2d.fill(path);
-                }
-                if(val<=min+4*step){
-                    g2d.setPaint(Color.RED);
-                    g2d.fill(path);
-                }if(val<=min+3*step){
-                    g2d.setPaint(Color.GREEN);
-                    g2d.fill(path);
-                }if(val<=min+2*step){
-                    g2d.setPaint(Color.YELLOW);
-                    g2d.fill(path);
-                }if(val<=min+step){
-                    g2d.setPaint(Color.PINK);
-                    g2d.fill(path);
-                }
-                
-                /*if("FRA".equals(country.getIsoCode())){
-                    g2d.setPaint(Color.CYAN);
-                    g2d.fill(path);
-                }*/
             }      
         }
-        
-        
-        /*g2d.setPaint(Color.BLACK);
-        GeneralPath triangle = new GeneralPath();
-        triangle.moveTo(200,200);
-        triangle.lineTo(100, 300);
-        triangle.lineTo(300, 300);
-        triangle.closePath();
-        g2d.draw(triangle);*/
+        if(minMap !=ColorProvider.getMin() && stepMap !=ColorProvider.getStep() ){
+            for(LegendListener ll : listeners){
+                ll.setMin(ColorProvider.getMin());
+                ll.setStep(ColorProvider.getStep());
+            }
+        }
+    } 
+    
+    @Override
+    public void yearModified(int year) {
+        currentYear = year;
+        Map.this.repaint();
     }
+
+    @Override
+    public void zoomOutModified(int pZoom) {
+        zoom = pZoom*1.1f;
+        Map.this.repaint();
+    }
+
+    @Override
+    public void zoomInModified(int pZoom) {
+        zoom = pZoom/1.1f;
+        Map.this.repaint();
+    }
+    
+    @Override
+    public void refreshZoom(int pZoom) {
+        zoom = 1.0f;
+        Map.this.repaint();
+    }
+
+    public void addListeners(LegendListener toAdd){
+        listeners.add(toAdd);
+    }
+    
+    
+    
 }
