@@ -31,6 +31,30 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
+        jMenuItem2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                map1.setNomIndic(jMenuItem2.getText());
+                map1.repaint();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        jMenuItem3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                map1.setNomIndic(jMenuItem3.getText());
+                map1.repaint();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        jMenuItem4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                map1.setNomIndic(jMenuItem4.getText());
+                map1.repaint();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
     }
     
     /*private void display(){
@@ -126,7 +150,8 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         jMenuItem1.setText("Gross intake ratio in first grade of primary education, female (% of relevant age group)");
         jMenu12.add(jMenuItem1);
 
-        jMenuItem2.setText("Gross intake ratio in first grade of primary education, male (% of relevant age group) ");
+        jMenuItem2.setText("Gross intake ratio in first grade of primary education, male (% of relevant age group)");
+        jMenuItem2.setActionCommand(")");
         jMenu12.add(jMenuItem2);
 
         jMenu1.add(jMenu12);
@@ -138,14 +163,14 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
 
         jMenu13.setText("Diesease Prevention");
 
-        jMenuItem3.setText("Condom use, population ages 15-24, female (% of females ages 15-24) ");
+        jMenuItem3.setText("Condom use, population ages 15-24, female (% of females ages 15-24)");
         jMenu13.add(jMenuItem3);
 
         jMenu2.add(jMenu13);
 
         jMenu14.setText("Health Service");
 
-        jMenuItem4.setText("Hospital beds (per 1,000 people) ");
+        jMenuItem4.setText("Hospital beds (per 1,000 people)");
         jMenu14.add(jMenuItem4);
 
         jMenu2.add(jMenu14);
@@ -184,7 +209,7 @@ public class ProjetCaroyBordier extends javax.swing.JFrame {
         jMenu10.setText("Social");
         jMenuBar1.add(jMenu10);
 
-        jMenu11.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELODIECAROY\\Pictures\\menu.png")); // NOI18N
+        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu.png"))); // NOI18N
         jMenu11.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
