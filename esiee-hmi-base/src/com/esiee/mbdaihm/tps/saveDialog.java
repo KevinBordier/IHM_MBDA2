@@ -13,6 +13,7 @@ import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -140,6 +141,8 @@ public class saveDialog extends JDialog{
                     Logger.getLogger(saveDialog.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
                     Logger.getLogger(saveDialog.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(saveDialog.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -196,7 +199,7 @@ public class saveDialog extends JDialog{
         excelB.setSelected(false);
     }
     
-    public void sauvegarde() throws AWTException, IOException{
+    public void sauvegarde() throws AWTException, IOException, InterruptedException{
         
         String namefile = "";
         String indic;
@@ -225,9 +228,15 @@ public class saveDialog extends JDialog{
             
             Container content = this.getParent();
             System.out.println(content);
-            BufferedImage image = new BufferedImage(content.getWidth(), content.getHeight(), BufferedImage.TYPE_INT_RGB);
+            /*BufferedImage image = new BufferedImage(content.getWidth(), content.getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D graphics2D = image.createGraphics();
-            content.paint(graphics2D);
+            content.paint(graphics2D);*/
+            
+            long l = 1000;
+            Thread.sleep(l);
+            Point p = content.getLocationOnScreen();
+            Rectangle capt = new Rectangle(p.x, p.y, content.getWidth(), content.getHeight());
+            BufferedImage image = new Robot().createScreenCapture(capt);
             //BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
             ImageIO.write(image, "jpg", new File(namefile));
         }
