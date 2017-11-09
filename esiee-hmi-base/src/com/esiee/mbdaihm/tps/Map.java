@@ -145,7 +145,7 @@ public class Map extends JPanel implements YearListener, ZoomListener{
     
     @Override
     protected void paintComponent(Graphics g){
-        
+        JPopupMenu.setDefaultLightWeightPopupEnabled(false);
         
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -191,6 +191,8 @@ public class Map extends JPanel implements YearListener, ZoomListener{
     public void yearModified(int year) {
         currentYear = year;
         Map.this.repaint();
+        //System.out.println(this.getParent().getParent().getParent().getParent().getParent());
+        //this.getParent().getParent().getParent().getParent().getParent().repaint();
     }
 
     @Override

@@ -9,9 +9,11 @@ import com.esiee.mbdaihm.datamodel.DataManager;
 import java.awt.AWTException;
 import java.awt.Container;
 import java.awt.Dialog;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -139,6 +141,8 @@ public class saveDialog extends JDialog{
                     Logger.getLogger(saveDialog.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
                     Logger.getLogger(saveDialog.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(saveDialog.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -195,10 +199,16 @@ public class saveDialog extends JDialog{
         excelB.setSelected(false);
     }
     
-    public void sauvegarde() throws AWTException, IOException{
+    public void sauvegarde() throws AWTException, IOException, InterruptedException{
         
         String namefile = "";
-        String indic = DataManager.INSTANCE.getCurrentIndicator().getCode();
+        String indic;
+        if(DataManager.INSTANCE.getCurrentIndicator() == null){
+            indic = "noIndic";
+        }
+        else {
+            indic = DataManager.INSTANCE.getCurrentIndicator().getCode();
+        }
         indic = indic.replace(".", "_");
         if(jText.getText().length() > 0){
             namefile = jText.getText();
@@ -217,14 +227,22 @@ public class saveDialog extends JDialog{
             this.dispose();
             
             Container content = this.getParent();
-            //BufferedImage image = new BufferedImage(content.getWidth(), content.getHeight(), BufferedImage.TYPE_INT_RGB);
+            System.out.println(content);
+            /*BufferedImage image = new BufferedImage(content.getWidth(), content.getHeight(), BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics2D = image.createGraphics();
+            content.paint(graphics2D);*/
             
-            BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+            long l = 1000;
+            Thread.sleep(l);
+            Point p = content.getLocationOnScreen();
+            Rectangle capt = new Rectangle(p.x, p.y, content.getWidth(), content.getHeight());
+            BufferedImage image = new Robot().createScreenCapture(capt);
+            //BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
             ImageIO.write(image, "jpg", new File(namefile));
         }
         else System.out.println("error rb");
 
-        System.out.println(namefile);
+        //System.out.println(namefile);
     }
     
 }
