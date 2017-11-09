@@ -29,12 +29,12 @@ public class EditYear extends JPanel{
     private List<YearListener>listeners = new ArrayList<YearListener>();
     private int currentYear;
     JLabel lYear= new JLabel("Year:");
-    JTextField tfYear = new JTextField(""+1960, 6);
-    JSlider sYear = new JSlider(JSlider.HORIZONTAL,1960,2015, 1960);
+    JTextField tfYear = new JTextField(""+2000, 6);
+    JSlider sYear = new JSlider(JSlider.HORIZONTAL,1960,2015, 2000);
     
     public EditYear(){
         //instance.
-        currentYear = 1960;
+        currentYear = 2000;
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         lYear.setOpaque(true);
