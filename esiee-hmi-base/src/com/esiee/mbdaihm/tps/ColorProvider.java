@@ -33,10 +33,11 @@ class ColorProvider {
     static Paint getColorForCountry(Country country, String codeIndic, int currentYear) {
         Indicator toTest = DataManager.INSTANCE.getIndicators().
                     filter(i->i.getName().equals(codeIndic)).findFirst().get();
-
+        
         if(toTest != lastComputedIndicator){
             List<RawWDIData> myIndicatorToMap
                         = WDIDataDecoder.decode(Launch.WDI_FOLDER,toTest.getCode() );
+            
             DoubleSummaryStatistics stats = myIndicatorToMap.stream().
                     mapToDouble(rd -> rd.getValueForYear(""+currentYear)).
                     filter(d -> !(Double.isNaN(d))).
@@ -44,6 +45,7 @@ class ColorProvider {
             /*System.out.println("max: " + stats.getMax());
             System.out.println("min: " + stats.getMin());
             System.out.println("year: " + currentYear);*/
+            //System.out.println("summaryStatistics = " + stats);
             max = stats.getMax();
             if(max == Double.NEGATIVE_INFINITY){
                 max = Double.NaN;
