@@ -133,7 +133,9 @@ public class LegendProvider extends JPanel implements LegendListener{
     @Override
     public void setMin(double min) {
         //java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
+
         //myMin = Double.parseDouble(df.format(min));
+
         myMin = min;
     }
 

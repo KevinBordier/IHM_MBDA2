@@ -58,7 +58,7 @@ public class Map extends JPanel implements YearListener, ZoomListener{
             //year = new EditYear();
             minMap = 0;
             stepMap = 0;
-            currentYear = 1960;
+            currentYear = 2000;
             
             
             addMouseWheelListener(new MouseWheelListener(){

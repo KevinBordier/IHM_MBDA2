@@ -33,22 +33,27 @@ class ColorProvider {
     static Paint getColorForCountry(Country country, String codeIndic, int currentYear) {
         Indicator toTest = DataManager.INSTANCE.getIndicators().
                     filter(i->i.getName().equals(codeIndic)).findFirst().get();
-
+        
         if(toTest != lastComputedIndicator){
             List<RawWDIData> myIndicatorToMap
                         = WDIDataDecoder.decode(Launch.WDI_FOLDER,toTest.getCode() );
+            
             DoubleSummaryStatistics stats = myIndicatorToMap.stream().
                     mapToDouble(rd -> rd.getValueForYear(""+currentYear)).
                     filter(d -> !(Double.isNaN(d))).
                     summaryStatistics();
-
+            /*System.out.println("max: " + stats.getMax());
+            System.out.println("min: " + stats.getMin());
+            System.out.println("year: " + currentYear);*/
+            //System.out.println("summaryStatistics = " + stats);
             max = stats.getMax();
-            if(max == Double.POSITIVE_INFINITY){
-                max = 0.0;
+            if(max == Double.NEGATIVE_INFINITY){
+                max = Double.NaN;
             }
             min = stats.getMin();
+            System.out.println(min);
             if(min == Double.POSITIVE_INFINITY){
-                min = 0.0;
+                min =Double.NaN;
             }
             step = (max-min)/5;
             lastComputedIndicator = toTest;
@@ -57,6 +62,7 @@ class ColorProvider {
 
         double val = country.getValueForYear(currentYear);
         if(val>min+4*step){
+            //System.out.println("legende: " + country.getName()+ "-> "+ min+4*step + " val: " + val);
             return col1;
         }
         if(val<=min+4*step){
